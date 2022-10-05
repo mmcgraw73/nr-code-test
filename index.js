@@ -18,8 +18,9 @@ function phraseCount(str, phrase) {
 function cycleString(str) {
   // punctuation removal
   str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+  // \n (as a string) removal
   str = str.replace(/(\r\n|\n|\r)/gm, '');
-  // give me an array of words from the imported .txt file
+  // give me an array of words from the imported .txt file split at space
   let strArr = str.split(' ');
   let phrases = [];
   // for the length of the word array divided by 3 to account for 3 word phrases?? ...
@@ -28,8 +29,7 @@ function cycleString(str) {
     let pc = phraseCount(str, `${strArr[0]} ${strArr[1]} ${strArr[2]}`);
     // then take out that phrase and loop back with the updated parsed string value
     let threewords = strArr.splice(0, 3);
-    // package up a new array of objects with 2 properties `count` and `phrase`
-
+    // package up a new array of objects, each object with 2 properties `count` and `phrase`
     phrases.push({ count: pc, phrase: threewords.join(' ') });
   }
 
