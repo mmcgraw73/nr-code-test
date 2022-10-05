@@ -1,7 +1,7 @@
 // run `node index.js` in the terminal
 
 var fs = require('fs');
-//var text = fs.readFileSync('./big_test.txt');
+var text = fs.readFileSync('./big_test.txt');
 var text = fs.readFileSync('./test.txt');
 
 const STR = text.toString('utf-8');
@@ -23,8 +23,10 @@ function cycleString(str) {
   // give me an array of words from the imported .txt file split at space
   let strArr = str.split(' ');
   let phrases = [];
+  let len = Math.round(strArr.length / 3);
+  console.log('long', len);
   // for the length of the word array divided by 3 to account for 3 word phrases?? ...
-  for (let i = 0; i < strArr.length / 3; i++) {
+  for (let i = 0; i < strArr.length; i++) {
     // count the times phrase appears
     let pc = phraseCount(str, `${strArr[0]} ${strArr[1]} ${strArr[2]}`);
     // then take out that phrase and loop back with the updated parsed string value
@@ -33,8 +35,31 @@ function cycleString(str) {
     phrases.push({ count: pc, phrase: threewords.join(' ') });
   }
 
+  // ** remove duplicates hack ** -- for loop - number of times?
+  phrases = phrases.filter(
+    (value, index, self) =>
+      index ===
+      self.findIndex(
+        (t) => t.count === value.count && t.phrase === value.phrase
+      )
+  );
+  if (len > 100) {
+    phrases = phrases.splice(0, 100);
+  }
   // return the array objects sorted by count and ordered high>low
   return phrases.sort((a, b) => (a.count > b.count ? 1 : -1)).reverse();
 }
 
-console.log(cycleString(STR));
+//console.log(cycleString(STR));
+
+var processedArr = cycleString(STR);
+
+//formatter - output correct format
+function formatter(arr) {
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    console.log(`${arr[i].phrase} - ${arr[i].count}`);
+  }
+}
+
+formatter(processedArr);
