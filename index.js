@@ -1,7 +1,9 @@
 // run `node index.js` in the terminal
 
 var fs = require('fs');
-var text = fs.readFileSync('./big_test.txt');
+//var text = fs.readFileSync('./big_test.txt');
+var text = fs.readFileSync('./test.txt');
+
 const STR = text.toString('utf-8');
 
 /**
@@ -20,13 +22,14 @@ function cycleString(str) {
   // give me an array of words from the imported .txt file
   let strArr = str.split(' ');
   let phrases = [];
-  // for the length of the word array...
-  for (let i = 0; i < strArr.length; i++) {
+  // for the length of the word array divided by 3 to account for 3 word phrases?? ...
+  for (let i = 0; i < strArr.length / 3; i++) {
     // count the times phrase appears
     let pc = phraseCount(str, `${strArr[0]} ${strArr[1]} ${strArr[2]}`);
     // then take out that phrase and loop back with the updated parsed string value
     let threewords = strArr.splice(0, 3);
     // package up a new array of objects with 2 properties `count` and `phrase`
+
     phrases.push({ count: pc, phrase: threewords.join(' ') });
   }
 
