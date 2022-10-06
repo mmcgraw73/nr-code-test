@@ -1,10 +1,11 @@
-// run `node index.js` in the terminal
+/**
+ * -----{ TO START: run `node index.js` in the terminal below }-----
+ **/
 
 var fs = require('fs');
-var text = fs.readFileSync('./big_test.txt');
+// var text = fs.readFileSync('./big_test.txt');
 var text = fs.readFileSync('./test.txt');
-
-const STR = text.toString('utf-8');
+var STR = text.toString('utf-8');
 
 /**
  * @param str String: the parsed string
@@ -15,7 +16,7 @@ function phraseCount(str, phrase) {
   return str.split(phrase).length - 1;
 }
 
-function cycleString(str) {
+function cycleText(str) {
   // punctuation removal
   str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
   // \n (as a string) removal
@@ -26,7 +27,7 @@ function cycleString(str) {
   let strArr = str.split(' ');
   let phrases = [];
   let len = Math.round(strArr.length / 3);
-  console.log('long', len);
+  // console.log('long', len);
   // for the length of the word array divided by 3 to account for 3 word phrases?? ...
   for (let i = 0; i < strArr.length; i++) {
     // count the times phrase appears
@@ -53,9 +54,9 @@ function cycleString(str) {
   return phrases.sort((a, b) => (a.count > b.count ? 1 : -1)).reverse();
 }
 
-//console.log(cycleString(STR));
+//console.log(cycleText(STR));
 
-var processedArr = cycleString(STR);
+var processedArr = cycleText(STR);
 
 //formatter - output correct format
 function formatter(arr) {
