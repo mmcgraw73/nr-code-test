@@ -20,6 +20,8 @@ function cycleString(str) {
   str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
   // \n (as a string) removal
   str = str.replace(/(\r\n|\n|\r)/gm, '');
+  // double space removal
+  str = str.replace(/ +(?= )/g, '');
   // give me an array of words from the imported .txt file split at space
   let strArr = str.split(' ');
   let phrases = [];
@@ -35,7 +37,7 @@ function cycleString(str) {
     phrases.push({ count: pc, phrase: threewords.join(' ') });
   }
 
-  // ** remove duplicates hack ** -- for loop - number of times?
+  // ** remove duplicates hack ** -- culprit: for loop - number of times?
   phrases = phrases.filter(
     (value, index, self) =>
       index ===
@@ -43,6 +45,7 @@ function cycleString(str) {
         (t) => t.count === value.count && t.phrase === value.phrase
       )
   );
+  // only need 100 items
   if (len > 100) {
     phrases = phrases.splice(0, 100);
   }
@@ -56,10 +59,11 @@ var processedArr = cycleString(STR);
 
 //formatter - output correct format
 function formatter(arr) {
-  console.log(arr);
+  console.log('----- FORMATTED OUTPUT START -----');
   for (let i = 0; i < arr.length; i++) {
     console.log(`${arr[i].phrase} - ${arr[i].count}`);
   }
+  console.log('----- FORMATTED OUTPUT END -----');
 }
 
 formatter(processedArr);
