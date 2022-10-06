@@ -1,6 +1,4 @@
-# nr-code-test
-
-- run the code at
+# nr-code-test: please create a function that when given text(s) will return a list of the 100 most common three word sequences.
 
 - how to run your program:
   1. navigate to [STACKBLITZ DEMO ⚡️](https://stackblitz.com/edit/nr-code-test?file=index.js&view=editor)
