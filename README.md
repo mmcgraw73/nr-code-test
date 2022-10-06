@@ -1,6 +1,12 @@
 # nr-code-test
 
-[STACKBLITZ DEMO ⚡️](https://stackblitz.com/edit/nr-code-test?file=index.js&view=editor)
+- run the code at
+
+- how to run your program:
+  1. navigate to [STACKBLITZ DEMO ⚡️](https://stackblitz.com/edit/nr-code-test?file=index.js&view=editor)
+  2. in the attached terminal, run `node index.js`
+- What you would do next, given more time (if anything)? \*\*
+- Are there bugs that you are aware of?
 
 #### EXAMPLE OUTPUT
 
