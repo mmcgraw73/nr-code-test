@@ -5,8 +5,10 @@ please create a function that when given text(s) will return a list of the 100 m
 - how to run your program:
   1. navigate to [STACKBLITZ DEMO ⚡️](https://stackblitz.com/edit/nr-code-test?file=index.js&view=editor)
   2. in the attached terminal, run `node index.js`
-- What you would do next, given more time (if anything)? \*\*
+- What you would do next, given more time (if anything)?
+  1. break out functionality into exports and compose inside index.js
 - Are there bugs that you are aware of?
+  1. the length used in the for loop does not seem to be correct since it produces duplicates - i added a filter to remove the dupes
 
 #### EXAMPLE OUTPUT
 
