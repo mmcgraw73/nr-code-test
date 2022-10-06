@@ -1,7 +1,8 @@
 # nr-code-test
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/nr-code-test)
+[STACKBLITZ DEMO ⚡️](https://stackblitz.com/edit/nr-code-test?file=index.js&view=editor)
 
+#### EXAMPLE OUTPUT
 
 ```
 This example illustrates - 28
