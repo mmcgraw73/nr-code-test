@@ -6,6 +6,7 @@ var fs = require('fs');
 // var text = fs.readFileSync('./big_test.txt');
 var text = fs.readFileSync('./test.txt');
 var STR = text.toString('utf-8');
+var PHRASE_STRS = []
 
 /**
  * @param str String: the parsed string
@@ -32,6 +33,7 @@ function cycleText(str) {
   for (let i = 0; i < len; i++) {
     // count the times phrase appears
     let pc = phraseCount(str, `${strArr[0]} ${strArr[1]} ${strArr[2]}`);
+    
     // then take out that phrase and loop back with the updated parsed string value
     let threewords = strArr.splice(0, 3);
     // package up a new array of objects, each object with 2 properties `count` and `phrase`
@@ -68,3 +70,8 @@ function formatter(arr) {
 }
 
 formatter(processedArr);
+
+// fs.writeFile('common_phrases.txt', processedArr.join(' '), function (err) {
+//   if (err) return console.log(err);
+//   console.log('common_phrases.txt');
+// });
