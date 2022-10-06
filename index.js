@@ -29,7 +29,7 @@ function cycleText(str) {
   let len = Math.round(strArr.length / 3);
   // console.log('long', len);
   // for the length of the word array divided by 3 to account for 3 word phrases?? ...
-  for (let i = 0; i < strArr.length; i++) {
+  for (let i = 0; i < len; i++) {
     // count the times phrase appears
     let pc = phraseCount(str, `${strArr[0]} ${strArr[1]} ${strArr[2]}`);
     // then take out that phrase and loop back with the updated parsed string value
